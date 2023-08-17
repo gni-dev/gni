@@ -1,0 +1,29 @@
+package win
+
+import "syscall"
+
+func D2D1_Matrix3x2F_Identity() D2D1_MATRIX_3X2_F {
+	return D2D1_MATRIX_3X2_F{1, 0, 0, 1, 0, 0}
+}
+
+func D2D1_PixelFormat() D2D1_PIXEL_FORMAT {
+	return D2D1_PIXEL_FORMAT{DXGI_FORMAT_UNKNOWN, D2D1_ALPHA_MODE_UNKNOWN}
+}
+
+func D2D1_RenderTargetProperties() D2D1_RENDER_TARGET_PROPERTIES {
+	return D2D1_RENDER_TARGET_PROPERTIES{
+		D2D1_RENDER_TARGET_TYPE_DEFAULT,
+		D2D1_PixelFormat(),
+		0,
+		0,
+		D2D1_RENDER_TARGET_USAGE_NONE,
+		D2D1_FEATURE_LEVEL_DEFAULT,
+	}
+}
+func D2D1_HwndRenderTargetProperties(hWnd syscall.Handle, pixelFormat D2D1_SIZE_U) D2D1_HWND_RENDER_TARGET_PROPERTIES {
+	return D2D1_HWND_RENDER_TARGET_PROPERTIES{
+		hWnd,
+		pixelFormat,
+		D2D1_PRESENT_OPTIONS_NONE,
+	}
+}
